@@ -1,0 +1,19 @@
+blacklist:
+- subnet: 174.254.35.75
+  description: a single IP address
+- subnet: 174.253.194.182
+  description: ishowu
+- subnet: 98.148.20.5
+  description: Hollywood29
+- subnet: 174.252.214.1
+  description: awesome_cock
+- subnet: 208.54.45.68
+  description: RockHardXL  
+- subnet: 173.155.225.66
+  description: diesel1987
+- subnet: 71.178.37.147
+  description: socem69
+- subnet: 87.109.237.210
+  description: badrbadr
+- subnet: 208.54.44.221
+  description: Ren23

@@ -1,0 +1,52 @@
+{% extends 'login/base.html' %}
+{% block title %}Join now{% endblock %}
+
+{% block signup %}
+          <p id="login">
+    Existing users:<a href="/login">Login Now</a>
+          </p>
+{% endblock %}
+
+{% block content %}
+
+{% include 'login/form_error.html' %}
+<form id="signup" action="" method="post">
+
+  <div>
+    <label for="first_name"><strong>First name</strong></label>
+    <input type="text" name="first_name" id="first_name" maxlength="60" class="text" value="{{first_name}}"/>
+  </div>
+
+  <div>
+    <label for="last_name"><strong>Last name</strong></label>
+    <input type="text" name="last_name" id="last_name" maxlength="60" class="text" value="{{last_name}}"/>
+  </div>
+
+  <div class="highlight">
+    <label for="nick"><strong>Screen name</strong></label>
+    <input type="text" name="nick" id="nick" maxlength="24" class="text" value="{{nick}}"/>
+    <p class="help">
+    Please use only letters and numbers.
+    </p>
+  </div>
+
+  <div>
+    <label for="email"><strong>Email address</strong></label>
+    <input type="text" name="email" id="email" class="text" value="{{email}}" maxlength="70"/>
+  </div>
+
+  <div>
+    <label for="password"><strong>Password</strong></label>
+    <input type="password" name="password" id="password" class="text" maxlength="50"/>
+  </div>
+
+  <div>
+    <label for="confirm"><strong>Verify password</strong></label>
+    <input type="password" name="confirm" id="confirm" class="text" maxlength="50"/>
+  </div>
+
+  <div class="buttons">
+    <input type="submit" value="SIGN UP" />
+  </div>
+</form> 
+{% endblock %}

@@ -1,0 +1,9 @@
+
+{% if request.errors %}
+<div id="error" class='error'>
+  <ul>
+    <li>{{request.errors}}</li>
+  </ul>
+</div>
+{% endif %}
+

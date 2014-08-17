@@ -1,0 +1,2 @@
+from google.appengine.ext import bulkload
+({% for item in entities_list %}{{ item.entity.name|escape }}Loader(),{% endfor %})

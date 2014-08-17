@@ -1,0 +1,37 @@
+import datetime
+
+from google.appengine.ext import bulkload
+from google.appengine.api import datastore_types
+from google.appengine.ext import search
+from google.appengine.ext import db
+
+from services.importhelpers import *
+import services.utils as utils
+
+{% for item in entities_list %}
+class {{ item.entity.name|escape }}(db.Expando):
+    {% for prop in item.properties %}{{ prop.name|escape }} = db.{{ prop.type_info.server_type|escape }}()
+    {% endfor %}is_deleted = db.BooleanProperty(default=False)
+    updated = db.DateTimeProperty(auto_now = True)
+    created = db.DateTimeProperty(auto_now_add = True)
+    owner   = db.StringProperty(required=False)
+    permission   = db.StringProperty(required=False)
+    version = db.IntegerProperty(default=0)
+    org     = db.StringProperty(required=False)
+
+class {{ item.entity.name|escape }}Loader(bulkload.Loader):
+  def __init__(self):
+    self.kind = '{{ item.entity.name|escape }}'
+    self.props = [{% for prop in item.properties %}('{{ prop.name|escape }}', {{ prop.type_info.import_type|escape }}),
+                          {% endfor %}
+                          ]
+    bulkload.Loader.__init__(self, '{{ item.entity.name|escape }}', self.props)
+
+  def HandleEntity(self, entity):        
+    {{ item.fkstring }}  
+    return utils.handle_entity(entity, '{{ item.entity.name|escape }}', self.props)
+{% endfor %}
+
+def init_loaders():
+	from google.appengine.ext import bulkload
+	return ({% for item in entities_list %}{{ item.entity.name|escape }}Loader(),{% endfor %})

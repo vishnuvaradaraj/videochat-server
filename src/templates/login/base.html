@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>
+    Parabay Inc. | Sign In
+  </title>
+  <meta name="description" content="Parabay Inc." />
+  <link rel="icon" href="/static/login/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/static/login/core.css?17" media="screen,projection" />
+    <!--[if lte IE 6]>
+      <link rel="stylesheet" type="text/css" href="/static/login/ie.css?13"/>
+    <![endif]-->
+      <link rel="stylesheet" type="text/css" href="/static/login/screen.css" media="screen,projection" />
+      <!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="/static/login/screen-ie.css"/>
+      <![endif]-->
+      
+</head>
+<body class="single">  
+  <div id="header-container">
+    <div id="header">
+        <div id="helper-nav">
+  {% block signup %}
+  {% endblock %}
+        
+        </div>
+<a href="http://www.parabay.com" id="logo">
+  <img src="/static/login/logo.PNG"  alt="Parabay Inc" />
+</a> <h1>Parabay Inc.</h1>
+    </div>
+  </div>
+  <div id="container" >
+<div id="content"><div class="top b"><div class="bottom">
+ 
+  {% block content %}
+  {% endblock %}
+
+</body>
+</html>
